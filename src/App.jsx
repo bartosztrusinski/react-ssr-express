@@ -1,6 +1,6 @@
 import React from 'react';
 
-const App = () => {
+export default function App() {
   const [rockets, setRockets] = useState(0);
 
   const handleClick = () => {
@@ -14,6 +14,4 @@ const App = () => {
       <button onClick={() => handleClick()}>Click me</button>
     </div>
   );
-};
-
-export default App;
+}
