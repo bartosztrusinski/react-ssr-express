@@ -8,10 +8,10 @@ export default function App() {
   };
 
   return (
-    <div>
+    <>
       <h1>Hello SSR 👨‍🚀</h1>
       <p>{rockets} rockets sent! 🚀</p>
       <button onClick={() => handleClick()}>Click me</button>
-    </div>
+    </>
   );
 }
