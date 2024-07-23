@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 
 export default function App() {
   const [rockets, setRockets] = useState(0);
