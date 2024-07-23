@@ -1,7 +1,7 @@
 import fs from 'fs/promises';
 import path from 'path';
-
 import { renderToString } from 'react-dom/server';
+
 import App from './App';
 
 export default async function renderString() {
