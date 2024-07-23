@@ -1,6 +1,6 @@
 import { renderToString } from 'react-dom/server';
 
-import Html from './Html';
+import Html from '../components/Html';
 
 export default function renderString(callback) {
   const renderedHtml =

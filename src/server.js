@@ -1,8 +1,8 @@
 import path from 'path';
 import express from 'express';
 
-import renderString from './renderString';
-import renderStream from './renderStream';
+import renderString from './renderUtils/renderString';
+import renderStream from './renderUtils/renderStream';
 
 const app = express();
 const PORT = 3000;
