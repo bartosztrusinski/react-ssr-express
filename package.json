@@ -1,23 +1,21 @@
 {
   "name": "react-ssr-express",
-  "type": "module",
   "version": "1.0.0",
-  "main": "index.js",
   "scripts": {
-    "start": "nodemon server.js",
-    "build": "esbuild ./src --bundle --outfile=dist/bundle.js"
+    "start": "nodemon build/server.js",
+    "build": "npm run build-server && npm run build-client",
+    "build-client": "esbuild src/client.jsx --bundle --jsx=automatic --minify --outfile=dist/bundle.js",
+    "build-server": "esbuild src/server.jsx --bundle --jsx=automatic --minify --outfile=build/server.js --platform=node"
   },
-  "author": "",
-  "license": "ISC",
-  "description": "",
   "dependencies": {
-    "@types/node": "^20.14.11",
     "express": "^4.19.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "@types/node": "^20.14.11",
     "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
     "esbuild": "0.23.0",
     "nodemon": "^3.1.4"
   }
