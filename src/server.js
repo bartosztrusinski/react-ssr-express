@@ -2,12 +2,17 @@ import path from 'path';
 import express from 'express';
 
 import renderString from './renderString';
+import renderStream from './renderStream';
 
 const app = express();
 const PORT = 3000;
 
 app.get('/', (req, res) => {
-  renderString((html) => res.send(html));
+  // renderString((html) => res.send(html));
+  renderStream((pipe) => {
+    res.setHeader('content-type', 'text/html');
+    pipe(res);
+  });
 });
 
 app.use(express.static(path.join(__dirname, '..', 'dist')));
