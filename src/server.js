@@ -6,14 +6,8 @@ import renderString from './renderString';
 const app = express();
 const PORT = 3000;
 
-app.get('/', async (req, res) => {
-  try {
-    const html = renderString();
-    res.send(html);
-  } catch (error) {
-    console.error(error);
-    res.status(500).send('<h1>500</h1>Internal Server Error');
-  }
+app.get('/', (req, res) => {
+  renderString((html) => res.send(html));
 });
 
 app.use(express.static(path.join(__dirname, '..', 'dist')));
