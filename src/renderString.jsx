@@ -1,18 +1,15 @@
-import fs from 'fs/promises';
-import path from 'path';
 import { renderToString } from 'react-dom/server';
 
-import App from './App';
+import Html from './Html';
 
-export default async function renderString() {
-  const htmlFile = await fs.readFile(
-    path.resolve('./public/index.html'),
-    'utf-8'
+export default function renderString() {
+  const app = renderToString(<Html />).replace(
+    '</head>',
+    `<link rel="stylesheet" href="bundle.css" />
+    <script type="module" src="bundle.js"></script>
+    </head>`
   );
-  const renderedApp = htmlFile.replace(
-    '<div id="root"></div>',
-    `<div id="root">${renderToString(<App />)}</div>`
-  );
+  const html = `<!DOCTYPE html>${app}`;
 
-  return renderedApp;
+  return html;
 }
