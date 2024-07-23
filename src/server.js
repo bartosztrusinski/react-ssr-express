@@ -8,8 +8,8 @@ const PORT = 3000;
 
 app.get('/', async (req, res) => {
   try {
-    const renderedApp = await renderString();
-    res.send(renderedApp);
+    const html = renderString();
+    res.send(html);
   } catch (error) {
     console.error(error);
     res.status(500).send('<h1>500</h1>Internal Server Error');
