@@ -1,24 +1,14 @@
-import fs from 'fs/promises';
 import path from 'path';
 import express from 'express';
 
-import { renderToString } from 'react-dom/server';
-import App from './App';
+import renderString from './renderString';
 
 const app = express();
 const PORT = 3000;
 
 app.get('/', async (req, res) => {
   try {
-    const htmlFile = await fs.readFile(
-      path.resolve('./public/index.html'),
-      'utf-8'
-    );
-    const renderedApp = htmlFile.replace(
-      '<div id="root"></div>',
-      `<div id="root">${renderToString(<App />)}</div>`
-    );
-
+    const renderedApp = await renderString();
     res.send(renderedApp);
   } catch (error) {
     console.error(error);
