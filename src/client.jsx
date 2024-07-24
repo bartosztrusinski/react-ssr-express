@@ -1,12 +1,12 @@
 import { hydrateRoot } from 'react-dom/client';
 
 import Html from './components/Html';
-import App from './components/App';
+import SuspendedApp from './components/SuspendedApp';
 import './style.css';
 
 hydrateRoot(
   document,
   <Html>
-    <App />
+    <SuspendedApp />
   </Html>
 );
