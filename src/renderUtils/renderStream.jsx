@@ -4,7 +4,7 @@ import Html from '../components/Html';
 
 export default async function renderStream(callback) {
   const { pipe } = renderToPipeableStream(<Html />, {
-    bootstrapModules: ['bundle.js'],
+    bootstrapScripts: ['bundle.js'],
     onShellReady() {
       callback(pipe);
     },

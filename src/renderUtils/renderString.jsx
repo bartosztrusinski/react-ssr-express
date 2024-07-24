@@ -7,7 +7,7 @@ export default function renderString(callback) {
     '<!DOCTYPE html>' +
     renderToString(<Html />).replace(
       '</head>',
-      '<script type="module" src="bundle.js"></script></head>'
+      '<script src="bundle.js" defer></script></head>'
     );
 
   callback(renderedHtml);
