@@ -1,6 +1,4 @@
-import App from './App';
-
-export default function Html() {
+export default function Html({ children }) {
   return (
     <html lang='en'>
       <head>
@@ -9,9 +7,7 @@ export default function Html() {
         <title>Rockets 🚀</title>
         <link rel='stylesheet' href='bundle.css' />
       </head>
-      <body>
-        <App />
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
