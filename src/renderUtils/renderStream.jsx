@@ -9,7 +9,7 @@ export default async function renderStream(callback) {
       <SuspendedApp />
     </Html>,
     {
-      bootstrapScripts: ['bundle.js'],
+      bootstrapModules: ['client.js'],
       onShellReady() {
         callback(pipe);
       },

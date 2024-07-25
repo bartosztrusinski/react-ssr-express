@@ -4,8 +4,8 @@
   "scripts": {
     "start": "nodemon build/server.js",
     "build": "npm run build:server && npm run build:client",
-    "build:client": "esbuild src/client.jsx --bundle --jsx=automatic --splitting --minify --outdir=dist",
-    "build:server": "esbuild src/server.js --bundle --jsx=automatic --splitting --minify --outdir=build --platform=node"
+    "build:client": "esbuild src/client.jsx --bundle --jsx=automatic --splitting --format=esm --minify --outdir=dist",
+    "build:server": "esbuild src/server.js --platform=node --bundle --jsx=automatic --minify --outdir=build"
   },
   "dependencies": {
     "express": "^4.19.2",
