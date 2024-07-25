@@ -43,8 +43,16 @@ const posts = [
   },
 ];
 
-const Sidebar = lazy(() => import('./Sidebar'));
-const Posts = lazy(() => import('./Posts'));
+const Sidebar = lazy(
+  () =>
+    new Promise((resolve) =>
+      setTimeout(() => resolve(import('./Sidebar'), 1000))
+    )
+);
+const Posts = lazy(
+  () =>
+    new Promise((resolve) => setTimeout(() => resolve(import('./Posts')), 2000))
+);
 
 export default function SuspendedApp() {
   return (
