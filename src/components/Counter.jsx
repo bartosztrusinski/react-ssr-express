@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export default function App() {
+export default function Counter() {
   const [rockets, setRockets] = useState(0);
 
   const handleClick = () => {
@@ -8,10 +8,9 @@ export default function App() {
   };
 
   return (
-    <>
-      <h1>Hello SSR 👨‍🚀</h1>
+    <div className='counter'>
       <p>{rockets} rockets sent! 🚀</p>
       <button onClick={() => handleClick()}>Click me</button>
-    </>
+    </div>
   );
 }

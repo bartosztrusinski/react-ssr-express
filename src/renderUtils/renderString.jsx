@@ -1,14 +1,14 @@
 import { renderToString } from 'react-dom/server';
 
 import Html from '../components/Html';
-import App from '../components/App';
+import Counter from '../components/Counter';
 
 export default function renderString(callback) {
   const renderedHtml =
     '<!DOCTYPE html>' +
     renderToString(
       <Html>
-        <App />
+        <Counter />
       </Html>
     ).replace('</head>', '<script src="bundle.js" defer></script></head>');
 
