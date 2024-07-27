@@ -15,7 +15,7 @@ body {
 
 h1 {
   font-size: 2rem;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1rem;
   text-align: center;
 }
 
@@ -30,6 +30,7 @@ h2 {
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+  margin-top: 0.4rem;
 }
 
 .post {
@@ -69,7 +70,31 @@ h2 {
   -moz-text-fill-color: transparent;
 }
 
-.like-button {
+button.is-liked {
+  background-color: #ce2239;
+  background-image: linear-gradient(45deg, #ce2239, #c73b98);
+}
+
+.loader {
+  margin: 0.8rem auto;
+  text-align: center;
+  font-size: 1.4rem;
+}
+
+nav {
+  display: flex;
+  justify-content: start;
+  gap: 1rem;
+  margin-inline: 1rem;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+button {
   min-width: 8rem;
   margin-block: 1rem;
   padding: 0.5rem 1.2rem;
@@ -85,13 +110,22 @@ h2 {
   font-weight: bold;
 }
 
-.is-liked {
-  background-color: #ce2239;
-  background-image: linear-gradient(45deg, #ce2239, #c73b98);
+button.active {
+  background-color: #0fe771;
+  background-image: linear-gradient(45deg, #0fe771, #17e4b7);
 }
 
-.loader {
-  margin: 0.8rem auto;
-  text-align: center;
+button.counter-text {
+  font-size: 1.2rem;
+}
+
+.counter {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+
+.counter p {
   font-size: 1.4rem;
 }
