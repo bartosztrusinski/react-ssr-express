@@ -1,6 +1,7 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useState } from 'react';
 
 import Loader from './Loader';
+import Navigation from './Navigation';
 
 const posts = [
   {
@@ -50,27 +51,39 @@ const posts = [
   },
 ];
 
-const Sidebar = lazy(
-  () =>
-    new Promise((resolve) =>
-      setTimeout(() => resolve(import('./Sidebar'), 1000))
-    )
-);
 const Posts = lazy(
   () =>
     new Promise((resolve) => setTimeout(() => resolve(import('./Posts')), 2000))
 );
+const Counter = lazy(
+  () =>
+    new Promise((resolve) =>
+      setTimeout(() => resolve(import('./Counter')), 1000)
+    )
+);
 
 export default function SuspendedApp() {
+  const [isCounterVisible, setIsCounterVisible] = useState(true);
+
+  const showCounter = () => {
+    setIsCounterVisible(true);
+  };
+
+  const showPosts = () => {
+    setIsCounterVisible(false);
+  };
+
   return (
     <>
-      <Suspense fallback={<Loader />}>
-        <Sidebar />
-      </Suspense>
+      <Navigation
+        isCounterVisible={isCounterVisible}
+        showCounter={showCounter}
+        showPosts={showPosts}
+      />
       <main>
-        <h1>My posts</h1>
+        <h1>{isCounterVisible ? 'Hello 👨‍🚀' : 'My posts ✍️'}</h1>
         <Suspense fallback={<Loader />}>
-          <Posts posts={posts} />
+          {isCounterVisible ? <Counter /> : <Posts posts={posts} />}
         </Suspense>
       </main>
     </>
