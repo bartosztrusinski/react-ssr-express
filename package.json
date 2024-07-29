@@ -3,9 +3,12 @@
   "version": "1.0.0",
   "scripts": {
     "start": "nodemon build/server.js",
-    "build": "npm run build:server && npm run build:client",
-    "build:client": "esbuild src/client.jsx --bundle --jsx=automatic --splitting --format=esm --minify --outdir=dist",
-    "build:server": "esbuild src/server.js --platform=node --bundle --jsx=automatic --minify --outdir=build"
+    "build:string": "npm run build:server:string && npm run build:client:string",
+    "build:client:string": "esbuild src/stringSSR/client.jsx --bundle --jsx=automatic --minify --outdir=dist",
+    "build:server:string": "esbuild src/stringSSR/server.js --platform=node --bundle --jsx=automatic --minify --outdir=build",
+    "build:stream": "npm run build:server:stream && npm run build:client:stream",
+    "build:client:stream": "esbuild src/streamSSR/client.jsx --bundle --jsx=automatic --splitting --format=esm --minify --outdir=dist",
+    "build:server:stream": "esbuild src/streamSSR/server.js --platform=node --bundle --jsx=automatic --minify --outdir=build"
   },
   "dependencies": {
     "express": "^4.19.2",

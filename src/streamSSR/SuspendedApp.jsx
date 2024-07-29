@@ -1,7 +1,7 @@
 import { lazy, Suspense, useState } from 'react';
 
-import Loader from './Loader';
-import Navigation from './Navigation';
+import Loader from '../components/Loader';
+import Navigation from '../components/Navigation';
 
 const posts = [
   {
@@ -53,17 +53,19 @@ const posts = [
 
 const Posts = lazy(
   () =>
-    new Promise((resolve) => setTimeout(() => resolve(import('./Posts')), 2000))
+    new Promise((resolve) =>
+      setTimeout(() => resolve(import('../components/Posts')), 2000)
+    )
 );
 const Counter = lazy(
   () =>
     new Promise((resolve) =>
-      setTimeout(() => resolve(import('./Counter')), 1000)
+      setTimeout(() => resolve(import('../components/Counter')), 1000)
     )
 );
 
-export default function SuspendedApp() {
-  const [isCounterVisible, setIsCounterVisible] = useState(true);
+export default function SuspendedApp({ tab }) {
+  const [isCounterVisible, setIsCounterVisible] = useState(tab === 'counter');
 
   const showCounter = () => {
     setIsCounterVisible(true);

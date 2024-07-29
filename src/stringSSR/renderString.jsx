@@ -10,7 +10,7 @@ export default function renderString(callback) {
       <Html>
         <Counter />
       </Html>
-    ).replace('</head>', '<script src="bundle.js" defer></script></head>');
+    ).replace('</head>', '<script src="client.js" defer></script></head>');
 
   callback(renderedHtml);
 }

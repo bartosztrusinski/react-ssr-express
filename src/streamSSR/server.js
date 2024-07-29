@@ -1,14 +1,12 @@
 import path from 'path';
 import express from 'express';
 
-import renderString from './renderUtils/renderString';
-import renderStream from './renderUtils/renderStream';
+import renderStream from './renderStream';
 
 const app = express();
 const PORT = 3000;
 
 app.get('/', (req, res) => {
-  // renderString((html) => res.send(html));
   renderStream((pipe) => {
     res.setHeader('content-type', 'text/html');
     pipe(res);
